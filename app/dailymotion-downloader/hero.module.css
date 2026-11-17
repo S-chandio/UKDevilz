@@ -1,0 +1,140 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  --paper: #06080d;
+  --surface: #191c23;
+  --ink: #fff;
+  --muted: #bfc1cb;
+  --line: #363943;
+  --accent: #f682f2;
+  --accent-ink: #0d0d0d;
+  --emphasis: #f682f2;
+  --link: #f682f2;
+  --focus: #f682f2;
+  color: var(--ink);
+  background: radial-gradient(ellipse at 76% 12%, #171c29 0%, transparent 43%), #06080d;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+  margin-inline: auto;
+  padding: 148px 24px 112px;
+}
+
+.hero .player {
+  border-color: #ffffff30;
+  background: #0c0e14e8;
+  box-shadow: 0 30px 90px #0008, 0 1px 0 #ffffff0a inset;
+}
+
+.hero .stage {
+  background: radial-gradient(ellipse at 50% 0%, #252835d9, #0b0d13e6 78%);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #06080d 0%, transparent 16%, transparent 84%, #0002);
+}
+
+.facet {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(131deg, #14192390, #05070b44 50%, #242b3d50);
+  clip-path: polygon(0 0, 37% 0, 94% 43%, 39% 100%, 0 72%);
+}
+
+.beam {
+  position: absolute;
+  width: 150%;
+  height: 140px;
+  left: -25%;
+  top: 42%;
+  transform: rotate(-32deg);
+  background: linear-gradient(0deg, transparent, #c7d6ef08 50%, #d9e4ff13 99%, #d9e4ff45);
+  opacity: .65;
+}
+
+.watermark {
+  position: absolute;
+  width: clamp(520px, 69vw, 1040px);
+  left: -15%;
+  top: 8%;
+  transform: rotate(-14deg);
+  color: #d8e1f0;
+  opacity: .055;
+}
+
+.watermark svg { display: block; width: 100%; height: auto; }
+.field { position: relative; width: 100%; height: 100%; max-width: 1800px; margin-inline: auto; }
+.floater { position: absolute; width: var(--size); transform: rotate(var(--tilt)); }
+.drift { width: 100%; }
+
+.tile {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid #ffffff40;
+  border-radius: 24%;
+  color: #e2e7f2;
+  background: linear-gradient(140deg, #373b46, #11151d 58%, #080a10);
+  box-shadow: 2px 5px 0 #04060b, 0 16px 28px #0006, inset 0 1px 1px #ffffff26;
+}
+
+.tile svg { display: block; width: 62%; height: 62%; }
+.floater[data-symbol="brand"] { --size: clamp(132px, 14vw, 190px); top: 25px; right: 5%; z-index: 1; }
+.floater[data-symbol="brand"] .tile { border-radius: 50%; color: white; background: radial-gradient(circle at 38% 28%, #13151c, #030407 72%); border-color: #e1e7f0c2; box-shadow: 0 0 0 5px #ffffff03, 0 16px 40px #0008; }
+.floater[data-symbol="brand"] .tile svg { width: 55%; height: 55%; }
+.floater[data-symbol="play"] { --size: 82px; left: 3%; top: 36%; }
+.floater[data-symbol="film"] { --size: 72px; left: 14%; top: 6%; opacity: .75; }
+.floater[data-symbol="audio"] { --size: 88px; left: 6%; bottom: 13%; }
+.floater[data-symbol="audio"] .tile { color: #e6c2ed; }
+.floater[data-symbol="link"] { --size: 76px; right: 3%; top: 49%; }
+.floater[data-symbol="download"] { --size: 52px; left: 28%; bottom: 5%; opacity: .65; }
+.floater[data-symbol="brand-small"] { --size: 68px; right: 15%; bottom: 6%; }
+.floater[data-symbol="brand-small"] .tile { color: #c1c6ed; }
+.floater[data-symbol="video"] { --size: 58px; right: 32%; top: 5%; opacity: .5; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .drift { animation: float var(--duration) ease-in-out var(--delay) infinite; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-3deg); }
+  35% { transform: translate3d(7px, -18px, 0) rotate(4deg); }
+  70% { transform: translate3d(-5px, -7px, 0) rotate(-1deg); }
+}
+
+@media (max-width: 1199px) {
+  .content { max-width: 54rem; padding-inline: 5vw; }
+  .floater[data-symbol="play"] { --size: 64px; left: 1%; }
+  .floater[data-symbol="link"] { --size: 60px; right: 1%; }
+  .floater[data-symbol="audio"] { --size: 70px; left: 3%; bottom: 7%; }
+}
+
+@media (max-width: 900px) {
+  .content { padding-top: 130px; padding-bottom: 105px; }
+  .floater[data-symbol="brand"] { --size: 104px; right: 7%; top: 14px; }
+  .floater[data-symbol="film"] { --size: 64px; left: 8%; top: 36px; }
+  .floater[data-symbol="audio"] { --size: 56px; bottom: 20px; left: 8%; }
+  .floater[data-symbol="brand-small"] { --size: 54px; bottom: 18px; right: 8%; }
+  .floater[data-symbol="play"],
+  .floater[data-symbol="link"],
+  .floater[data-symbol="download"],
+  .floater[data-symbol="video"] { display: none; }
+  .watermark { left: -230px; top: 12%; opacity: .065; }
+}

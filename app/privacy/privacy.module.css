@@ -1,0 +1,29 @@
+.page { background: #f7f2f2; color: #201a1b; }
+.wrap { width: min(1160px,90%); margin-inline:auto; }
+.hero { padding: 5rem 0 3.5rem; }
+.eyebrow { color:#ba252e; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; }
+.hero h1 { font-size:clamp(2.5rem,5vw,4.7rem); line-height:1.15; margin-top:1rem; }
+.intro { max-width:55ch; font-size:1.15rem; line-height:1.8; margin-top:1.5rem; }
+.meta { display:flex; flex-wrap:wrap; gap:1rem 2rem; font-size:.8rem; color:#6b5b5e; margin-top:2rem; }
+.notice { margin-top:2rem; border-left:3px solid #bb2831; background:#eee3df; padding:1.1rem 1.4rem; max-width:780px; font-size:.85rem; line-height:1.7; }
+.notice p { margin-top:.3rem; }
+.overview { background:#141112; color:#fff5ef; }
+.cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3rem; padding-block:3rem; }
+.cards article > span { color:#ff898d; font-size:.8rem; }
+.cards h2 { font-size:1.5rem; margin:.7rem 0; }
+.cards p { color:#d4c7c9; font-size:.9rem; line-height:1.8; }
+.layout { display:grid; grid-template-columns:260px minmax(0,1fr); gap:5rem; padding-block:4rem; }
+.contents { position:sticky; top:100px; align-self:start; }
+.contents > p { font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:1rem; }
+.contents a { display:flex; gap:.8rem; padding:.8rem 0; border-bottom:1px solid #dacdcf; text-decoration:none; color:#514146; font-size:.8rem; line-height:1.5; }
+.contents a span { color:#be2730; }
+.policySection { scroll-margin-top:110px; padding-bottom:2.5rem; margin-bottom:2.5rem; border-bottom:1px solid #d9cbcd; }
+.policySection h2 { font-size:clamp(1.7rem,3vw,2.5rem); margin:.7rem 0 1.3rem; }
+.policySection p { font-size:1rem; line-height:1.9; margin-top:1rem; color:#514146; }
+.contact { background:#eaded7; }
+.contact > div { display:flex; justify-content:space-between; align-items:center; gap:2rem; padding-block:3.5rem; }
+.contact h2 { font-size:clamp(1.8rem,3vw,2.7rem); }
+.contact p { margin-top:.8rem; }
+.contact a { background:#be2730; color:white; border-radius:999px; padding:1rem 1.5rem; text-decoration:none; white-space:nowrap; font-size:.85rem; }
+.page a:focus-visible { outline:3px solid #bb2831; outline-offset:5px; }
+@media(max-width:767px) { .cards,.layout { grid-template-columns:minmax(0,1fr); gap:2rem; } .hero { padding-top:3rem; } .contents { position:static; } .contact > div { align-items:start; flex-direction:column; } .policySection p { font-size:.95rem; } }

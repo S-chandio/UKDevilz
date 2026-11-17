@@ -1,0 +1,61 @@
+.section {
+  --request-slide-distance: 72px;
+  overflow: clip;
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(180px, 18vw, 220px);
+  grid-template-areas: "title mascot" "description mascot";
+  column-gap: 2.5rem;
+}
+
+.heading h2 { grid-area: title; align-self: end; }
+.heading p { grid-area: description; align-self: start; }
+
+.mascot {
+  grid-area: mascot;
+  align-self: center;
+  width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal[data-reveal-ready] .slide[data-reveal]:not([data-seen]) {
+    opacity: 0;
+  }
+
+  .reveal[data-reveal-ready] .slide[data-reveal][data-seen] {
+    animation: requestSlideIn 1100ms cubic-bezier(.22, .9, .3, 1) both;
+  }
+
+  .reveal[data-reveal-ready] .screen[data-reveal][data-seen] { animation-delay: 120ms; }
+  .reveal[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(1) { animation-delay: 240ms; }
+  .reveal[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(2) { animation-delay: 360ms; }
+  .reveal[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(3) { animation-delay: 480ms; }
+}
+
+@keyframes requestSlideIn {
+  from { opacity: 0; transform: translateX(var(--request-slide-distance)); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal[data-reveal-ready] .slide[data-reveal] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section { --request-slide-distance: 28px; }
+
+  .heading {
+    grid-template-columns: minmax(0, 1fr) 108px;
+    grid-template-areas: "title mascot" "description description";
+    column-gap: 1rem;
+  }
+
+  .heading h2 { align-self: center; }
+}

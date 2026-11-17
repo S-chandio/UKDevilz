@@ -1,0 +1,75 @@
+.hero { position: relative; isolation: isolate; }
+.content { position: relative; z-index: 1; }
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.field {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
+  margin-inline: auto;
+}
+
+.icon {
+  position: absolute;
+  width: var(--size, 100px);
+  color: var(--tone);
+  opacity: .72;
+  transform: rotate(var(--tilt));
+}
+
+.tv {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 3px 0 var(--depth)) drop-shadow(0 10px 10px #315a7214);
+}
+
+.icon:nth-child(1) { --size: 108px; left: 5%; top: 12%; }
+.icon:nth-child(2) { --size: 120px; right: 5%; top: 17%; }
+.icon:nth-child(3) { --size: 84px; left: 12%; top: 39%; opacity: .58; }
+.icon:nth-child(4) { --size: 90px; right: 10%; top: 44%; opacity: .62; }
+.icon:nth-child(5) { --size: 126px; left: 3%; bottom: 14%; }
+.icon:nth-child(6) { --size: 112px; right: 3%; bottom: 10%; }
+.icon:nth-child(7) { --size: 64px; left: 24%; top: 3%; opacity: .48; }
+.icon:nth-child(8) { --size: 62px; right: 25%; bottom: 2%; opacity: .48; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .tv { animation: drift var(--duration) ease-in-out var(--delay) infinite; }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-3deg); }
+  35% { transform: translate3d(8px, -18px, 0) rotate(4deg); }
+  70% { transform: translate3d(-5px, -8px, 0) rotate(-1deg); }
+}
+
+@media (max-width: 1100px) {
+  .icon:nth-child(1) { --size: 86px; left: 2%; }
+  .icon:nth-child(2) { --size: 90px; right: 2%; }
+  .icon:nth-child(3) { --size: 66px; left: 3%; top: 38%; }
+  .icon:nth-child(4) { --size: 68px; right: 3%; top: 42%; }
+  .icon:nth-child(5) { --size: 86px; left: 1%; }
+  .icon:nth-child(6) { --size: 82px; right: 1%; }
+}
+
+@media (max-width: 900px) {
+  .icon { opacity: .6; }
+  .icon:nth-child(1) { --size: 60px; top: 22px; left: 5%; }
+  .icon:nth-child(2) { --size: 64px; top: 24px; right: 5%; }
+  .icon:nth-child(5) { --size: 58px; bottom: 4px; left: 4%; }
+  .icon:nth-child(6) { --size: 58px; bottom: 4px; right: 4%; }
+  .icon:nth-child(3),
+  .icon:nth-child(4),
+  .icon:nth-child(7),
+  .icon:nth-child(8) { display: none; }
+}

@@ -1,0 +1,26 @@
+@media (prefers-reduced-motion: no-preference) {
+  .sources[data-reveal-ready] .fade[data-reveal]:not([data-seen]) {
+    opacity: 0;
+  }
+
+  .sources[data-reveal-ready] .fade[data-reveal][data-seen] {
+    animation: sourceFadeIn 1000ms ease-out both;
+  }
+
+  .sources[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(1) {
+    animation-delay: 120ms;
+  }
+
+  .sources[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(2) {
+    animation-delay: 240ms;
+  }
+
+  .sources[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(3) {
+    animation-delay: 360ms;
+  }
+}
+
+@keyframes sourceFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

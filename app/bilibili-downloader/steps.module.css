@@ -1,0 +1,38 @@
+.section {
+  --step-rise: 56px;
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sequence[data-reveal-ready] .pop[data-reveal]:not([data-seen]) {
+    opacity: 0;
+  }
+
+  .sequence[data-reveal-ready] .pop[data-reveal][data-seen] {
+    transform-origin: center bottom;
+    animation: stepPopUp 1050ms cubic-bezier(.22, .85, .3, 1) both;
+  }
+
+  .sequence[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(1) { animation-delay: 100ms; }
+  .sequence[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(2) { animation-delay: 200ms; }
+  .sequence[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(3) { animation-delay: 300ms; }
+  .sequence[data-reveal-ready] .card[data-reveal][data-seen]:nth-child(4) { animation-delay: 400ms; }
+}
+
+@keyframes stepPopUp {
+  0% { opacity: 0; transform: translateY(var(--step-rise)) scale(.95); }
+  70% { opacity: 1; transform: translateY(-5px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sequence[data-reveal-ready] .pop[data-reveal] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section { --step-rise: 32px; }
+}

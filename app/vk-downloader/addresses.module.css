@@ -1,0 +1,52 @@
+.recognised {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  min-width: 0;
+}
+
+.mascot {
+  display: block;
+  flex-shrink: 0;
+  width: 280px;
+  height: auto;
+}
+
+@media (min-width: 900px) {
+  .addresses .route {
+    grid-template-columns: minmax(180px, 1fr) 6rem auto;
+    gap: 1rem;
+  }
+
+  .mascot { width: clamp(210px, 24vw, 320px); }
+}
+
+@media (max-width: 580px) {
+  .mascot { width: 50%; max-width: 240px; }
+  .recognised :global(.vk-room) { flex: 0 1 12rem; min-width: 0; padding: 1rem; }
+}
+
+/* Reveal starts each fade on first view, including a reload at this section. */
+@media (prefers-reduced-motion: no-preference) {
+  .addresses[data-reveal-ready] .fade[data-reveal] {
+    opacity: 0;
+  }
+
+  .addresses[data-reveal-ready] .fade[data-reveal][data-seen] {
+    animation: fadeIn 900ms ease-out both;
+  }
+
+  .addresses[data-reveal-ready] .intro[data-reveal][data-seen] {
+    animation-delay: 120ms;
+  }
+
+  .addresses[data-reveal-ready] .diagram[data-reveal][data-seen] {
+    animation-delay: 240ms;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

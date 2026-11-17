@@ -1,0 +1,37 @@
+.section.section {
+  background-color: #fdf9ff;
+  background-image: url("/images/dailymotion/video-audio-background.webp");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  min-height: 42vw;
+}
+
+.content { width: 62%; }
+
+.section + section { padding-top: 3rem; }
+
+.section .card {
+  background: #ffffffdc;
+  border-color: #d9cce4;
+}
+
+@media (max-width: 1100px) {
+  .section.section {
+    --art-height: clamp(240px, 38vw, 380px);
+    background-size: auto var(--art-height);
+    background-position: right bottom;
+  }
+
+  .container {
+    min-height: 0;
+    padding-bottom: calc(var(--art-height) + 24px);
+  }
+
+  .content { width: 100%; }
+}

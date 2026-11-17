@@ -1,0 +1,11 @@
+.list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem;}
+.link{display:flex;align-items:center;gap:.7rem;padding:1.2rem;background:#fff;color:#171717;border:1px solid #0002;min-width:0;font-size:.85rem;text-decoration:none!important;transition:transform .2s;}
+.link:hover{transform:translateY(-4px);}.link:focus-visible{outline:3px solid currentColor;outline-offset:4px;}.icon{width:28px;height:28px;display:flex;flex-shrink:0;}.icon svg{width:100%;height:100%;}.index{font-size:.65rem;opacity:.7;}.arrow{margin-left:auto;}
+.soundcloud{grid-template-columns:1fr 1fr;gap:0 2rem;}.soundcloud .link{background:transparent;color:inherit;border:0;border-bottom:1px solid currentColor;padding:1.2rem .5rem;}.soundcloud .index{font-family:monospace;}.soundcloud .icon{border-radius:50%;background:#fff;color:#222;padding:6px;width:38px;height:38px;}
+.tiktok .link{flex-direction:column;align-items:flex-start;min-height:145px;background:#171717;color:#fff;border-right:3px solid #25f4ee;border-bottom:3px solid #fe2c55;}.tiktok .arrow{align-self:flex-end;margin-top:auto;}.tiktok .index{display:none;}
+.dailymotion{grid-template-columns:repeat(5,minmax(0,1fr));border-top:7px dashed currentColor;border-bottom:7px dashed currentColor;padding:1rem 0;}.dailymotion .link{flex-wrap:wrap;background:#f9e9fa;border:0;color:#191019;}.dailymotion .index{width:100%;}.dailymotion .arrow{display:none;}
+.bilibili .link{flex-wrap:wrap;border-radius:12px;background:#fff;color:#192128;border-bottom:4px solid #ff88b3;}.bilibili .index{width:100%;color:#086586;}.bilibili .arrow{display:none;}
+.vk{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;}.vk .link{border-radius:8px;background:#fff;color:#13436c;}.vk .index{display:none;}
+@media(max-width:850px){.list,.dailymotion{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:480px){.link{padding:1rem .7rem;font-size:.75rem;gap:.5rem;}.soundcloud{grid-template-columns:1fr;}.index{display:none;}}
+@media(prefers-reduced-motion:reduce){.link{transition:none;}.link:hover{transform:none;}}
